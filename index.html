@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js" integrity="sha512-bYkaBWaFtfPIMYt9+CX/4DWgfrjcHinjerNYxQmQx1VM76eUsPPKZa5zWV8KksVkBF/DaHSADCwil2J5Uq2ctA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Pagina dettaglio ristorante</title>
+  </head>
+  <body>
+    <div id="root">
+      <header>
+
+      </header>
+
+      <main>
+        <div class="row">
+          <div class="col-lg-3 dettaglio-rest">
+            <div class="card mb-3">
+              <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/12/c4/00/9f/hard-rock-cafe-firenze.jpg" alt="Card image cap">
+              <div class="card-body">
+                <!-- <h5 class="card-title">Hard Rock Cafe</h5>
+                <p class="card-text">
+                 Via De' Brunelleschi 1 Florence, Italy 50123 IT</p> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 piatti">
+
+            <div v-for="item in array"
+              :key="item.id" class="card" style="width: 18rem;">
+              <!-- <img class="card-img-top" :src="item.img"> -->
+              <div class="card-body">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <h6>Prezzo: {{item.price}}</h6>
+              <button @click="addToCart(item)" class="btn btn-primary">Aggiungi al carrello</button>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 ordine">
+            <h2>Il tuo ordine</h2>
+            <ul>
+              <li v-for="(order, index) in cart">{{order.name}} - {{order.quantity}} - {{order.total}}</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </main>
+
+      <footer></footer>
+
+    </div>
+
+
+
+
+    <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>
